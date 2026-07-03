@@ -1,692 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simran Masih | Data & Business Analyst</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simran Masih | Business Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --navy: #0d1b2e;
-    --navy-mid: #112240;
-    --navy-light: #1a2f4a;
-    --navy-card: #162035;
-    --blue: #3b82f6;
-    --blue-light: #60a5fa;
-    --cyan: #38bdf8;
-    --text: #e6edf3;
-    --text-muted: #8899aa;
-    --text-dim: #5a7a99;
-    --white: #ffffff;
-    --border: rgba(255,255,255,0.07);
-    --border-blue: rgba(59,130,246,0.4);
-  }
+    :root {
+      --navy:   #0D1B2A;
+      --ink:    #1A2B3C;
+      --steel:  #2E4057;
+      --sky:    #4A90D9;
+      --ice:    #E8F1FB;
+      --white:  #FFFFFF;
+      --mist:   #F5F8FC;
+      --mid:    #6B8CAE;
+      --light:  #B0C6DE;
+      --serif:  'DM Serif Display', serif;
+      --sans:   'Inter', sans-serif;
+    }
 
-  html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+    }
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(13,27,46,0.92);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 48px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 2.5rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--ice);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--navy);
+      letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--steel);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sky); }
 
-  .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 20px;
-    color: var(--white);
-    text-decoration: none;
-    letter-spacing: -0.3px;
-  }
-  .nav-logo span { color: var(--cyan); }
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; align-items: center;
+      padding: 6rem 2.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; top: -120px; right: -80px;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(74,144,217,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner { max-width: 780px; position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sky);
+      border: 1px solid rgba(74,144,217,0.4);
+      padding: 0.3rem 0.85rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+    }
+    .hero-name span { color: var(--sky); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--light);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .hero-cta {
+      display: inline-flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.75rem 1.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: var(--sky);
+      color: var(--white);
+      border: 2px solid var(--sky);
+    }
+    .btn-primary:hover { background: #3a7fc4; border-color: #3a7fc4; }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .btn-outline:hover { border-color: var(--white); }
 
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--white); }
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--white);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
 
-  /* HERO */
-  #hero {
-    min-height: 100vh;
-    padding: 140px 80px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #0d1b2e 0%, #0f2040 50%, #0d1b2e 100%);
-  }
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2.5rem; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .section-intro {
+      color: var(--steel);
+      font-size: 1rem;
+      max-width: 600px;
+      margin-bottom: 3rem;
+      line-height: 1.75;
+    }
 
-  #hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(59,130,246,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 30% 30%, rgba(56,189,248,0.05) 0%, transparent 60%);
-    pointer-events: none;
-  }
+    /* ── ABOUT ── */
+    #about { background: var(--mist); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--steel);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 0.97rem;
+    }
+    .about-skills { display: flex; flex-direction: column; gap: 1rem; }
+    .skill-row { display: flex; flex-direction: column; gap: 0.3rem; }
+    .skill-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .skill-bar { background: var(--ice); height: 4px; border-radius: 2px; }
+    .skill-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--sky), #6db3f2);
+    }
 
-  .hero-content { position: relative; z-index: 1; max-width: 900px; }
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--white); }
+    .exp-list { display: flex; flex-direction: column; gap: 2.5rem; }
+    .exp-card {
+      border-left: 3px solid var(--ice);
+      padding-left: 1.75rem;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .exp-card:hover { border-color: var(--sky); }
+    .exp-card::before {
+      content: '';
+      position: absolute; left: -6px; top: 6px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--sky);
+    }
+    .exp-meta {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .exp-company {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--navy);
+    }
+    .exp-date {
+      font-size: 0.78rem;
+      color: var(--mid);
+      font-weight: 500;
+    }
+    .exp-role {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--sky);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.85rem;
+    }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .exp-bullets li {
+      font-size: 0.93rem;
+      color: var(--steel);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.65;
+    }
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--light);
+    }
 
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: rgba(59,130,246,0.15);
-    border: 1px solid rgba(59,130,246,0.3);
-    border-radius: 999px;
-    color: var(--blue-light);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-  }
-  .badge::before {
-    content: '●';
-    color: #22c55e;
-    font-size: 8px;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    /* ── PROJECTS ── */
+    #projects { background: var(--mist); }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--ice);
+      border-radius: 6px;
+      padding: 1.75rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 8px 32px rgba(13,27,42,0.1);
+      transform: translateY(-3px);
+    }
+    .project-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 0.75rem;
+    }
+    .project-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--steel);
+      line-height: 1.7;
+      margin-bottom: 1.1rem;
+    }
+    .project-stack {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .stack-pill {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      background: var(--ice);
+      color: var(--steel);
+      letter-spacing: 0.04em;
+    }
 
-  .hero-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 88px;
-    line-height: 1;
-    font-weight: 400;
-    color: var(--white);
-    letter-spacing: -2px;
-    margin-bottom: 6px;
-  }
-  .hero-title-italic {
-    font-family: 'DM Serif Display', serif;
-    font-size: 88px;
-    line-height: 1;
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: -2px;
-    background: linear-gradient(90deg, var(--cyan), var(--blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 28px;
-    display: block;
-  }
+    /* ── CERTIFICATIONS ── */
+    #certs { background: var(--white); }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .cert-card {
+      border: 1px solid var(--ice);
+      border-radius: 4px;
+      padding: 1.4rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .cert-icon {
+      width: 36px; height: 36px;
+      background: var(--ice);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .cert-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .cert-issuer {
+      font-size: 0.78rem;
+      color: var(--mid);
+    }
 
-  .hero-sub {
-    color: var(--text-muted);
-    font-size: 17px;
-    font-weight: 300;
-    max-width: 520px;
-    margin-bottom: 28px;
-    line-height: 1.7;
-  }
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy);
+      text-align: center;
+    }
+    #contact .section-title { color: var(--white); }
+    #contact .section-intro { color: var(--light); margin: 0 auto 2.5rem; }
+    .contact-links {
+      display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;
+    }
+    .contact-link {
+      padding: 0.7rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .contact-link:hover {
+      background: rgba(74,144,217,0.2);
+      border-color: var(--sky);
+    }
 
-  .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
-  .skill-pill {
-    background: var(--navy-light);
-    border: 1px solid var(--border);
-    padding: 7px 14px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
-    transition: all 0.2s;
-  }
-  .skill-pill:hover { border-color: var(--blue); color: var(--blue-light); }
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--mid);
+    }
 
-  .hero-btns { display: flex; gap: 14px; margin-bottom: 80px; }
-  .btn-primary {
-    padding: 13px 26px;
-    background: var(--blue);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
-  .btn-secondary {
-    padding: 13px 26px;
-    background: transparent;
-    color: var(--text);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .btn-secondary:hover { border-color: rgba(255,255,255,0.4); }
-
-  .hero-stats {
-    display: flex;
-    gap: 60px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border);
-  }
-  .stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 46px;
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-num span { color: var(--cyan); }
-  .stat-label {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-dim);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* SECTIONS */
-  section { padding: 100px 80px; }
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--blue-light);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .section-label::before { content: '//'; color: var(--text-dim); }
-
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 52px;
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.1;
-    letter-spacing: -1px;
-    margin-bottom: 14px;
-  }
-  .section-sub {
-    color: var(--text-muted);
-    font-size: 16px;
-    max-width: 520px;
-    margin-bottom: 56px;
-    font-weight: 300;
-  }
-
-  /* ABOUT */
-  #about { background: #f8f9fb; }
-  #about .section-label { color: #3b82f6; }
-  #about .section-label::before { color: #9cb3c9; }
-  #about .section-title { color: #0d1b2e; }
-  #about .section-sub { color: #5a7a99; }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .about-body {
-    color: #374151;
-    font-size: 16px;
-    line-height: 1.8;
-    font-weight: 400;
-  }
-  .about-body p + p { margin-top: 20px; }
-
-  .about-notice {
-    margin-top: 28px;
-    padding: 18px 22px;
-    background: #eff6ff;
-    border-left: 3px solid var(--blue);
-    border-radius: 6px;
-    color: #374151;
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .tech-section { }
-  .tech-category {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--blue);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    margin-top: 22px;
-  }
-  .tech-category:first-child { margin-top: 0; }
-
-  .tech-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tech-pill {
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    border: 1px solid #e2e8f0;
-    color: #374151;
-    background: white;
-    transition: all 0.2s;
-  }
-  .tech-pill.highlight {
-    background: var(--blue);
-    color: white;
-    border-color: var(--blue);
-  }
-  .tech-pill.highlight2 {
-    background: #0d1b2e;
-    color: white;
-    border-color: #0d1b2e;
-  }
-  .tech-pill:not(.highlight):not(.highlight2):hover {
-    border-color: var(--blue);
-    color: var(--blue);
-  }
-
-  /* PROJECTS */
-  #projects { background: white; }
-  #projects .section-label { color: var(--blue); }
-  #projects .section-label::before { color: #9cb3c9; }
-  #projects .section-title { color: #0d1b2e; }
-  #projects .section-sub { color: #5a7a99; }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .proj-card {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 28px;
-    transition: all 0.25s;
-  }
-  .proj-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
-    border-color: #c7d5e8;
-  }
-
-  .proj-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 18px;
-  }
-  .proj-icon {
-    width: 46px; height: 46px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-  }
-  .proj-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: #9ca3af;
-  }
-
-  .proj-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 19px;
-    color: #0d1b2e;
-    margin-bottom: 12px;
-    line-height: 1.3;
-    font-weight: 400;
-  }
-  .proj-desc {
-    color: #6b7280;
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-
-  .proj-metrics {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .proj-metric {
-    flex: 1;
-    background: #eff6ff;
-    border-radius: 8px;
-    padding: 10px 8px;
-    text-align: center;
-  }
-  .proj-metric-val {
-    font-family: 'DM Serif Display', serif;
-    font-size: 18px;
-    color: var(--blue);
-    font-weight: 400;
-    line-height: 1;
-  }
-  .proj-metric-label {
-    font-size: 10px;
-    color: #9ca3af;
-    font-weight: 500;
-    margin-top: 4px;
-    letter-spacing: 0.03em;
-  }
-
-  .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .proj-tag {
-    padding: 5px 10px;
-    background: #0d1b2e;
-    color: #e6edf3;
-    border-radius: 5px;
-    font-size: 12px;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 400;
-  }
-
-  /* EXPERIENCE */
-  #experience { background: white; }
-  #experience .section-label { color: var(--blue); }
-  #experience .section-label::before { color: #9cb3c9; }
-  #experience .section-title { color: #0d1b2e; }
-  #experience .section-sub { color: #5a7a99; }
-
-  .exp-card {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 36px;
-  }
-  .exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-  }
-  .exp-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 24px;
-    color: #0d1b2e;
-    font-weight: 400;
-    margin-bottom: 4px;
-  }
-  .exp-company {
-    font-size: 15px;
-    color: var(--blue);
-    font-weight: 500;
-  }
-  .exp-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    color: #9ca3af;
-    padding: 6px 14px;
-    border: 1px solid #e5e7eb;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-
-  .exp-bullets { list-style: none; }
-  .exp-bullets li {
-    color: #374151;
-    font-size: 15px;
-    line-height: 1.7;
-    padding: 8px 0;
-    border-bottom: 1px solid #f3f4f6;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
-  .exp-bullets li:last-child { border-bottom: none; }
-  .exp-bullets li::before { content: '·'; color: var(--blue); font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-  .exp-bullets li strong { color: #0d1b2e; font-weight: 600; }
-
-  /* EDUCATION */
-  #education { background: var(--navy-mid); }
-  .edu-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 36px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-  }
-  .edu-degree {
-    font-family: 'DM Serif Display', serif;
-    font-size: 26px;
-    color: var(--white);
-    font-weight: 400;
-    margin-bottom: 6px;
-  }
-  .edu-school {
-    color: var(--cyan);
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-  .edu-dates {
-    color: var(--text-muted);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    margin-bottom: 16px;
-  }
-  .edu-courses {
-    color: var(--text-muted);
-    font-size: 14px;
-    line-height: 1.7;
-  }
-  .edu-gpa-box {
-    background: var(--navy-light);
-    border: 1px solid var(--border-blue);
-    border-radius: 14px;
-    padding: 28px 36px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-  .edu-gpa-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 52px;
-    color: var(--cyan);
-    line-height: 1;
-    font-weight: 400;
-  }
-  .edu-gpa-label {
-    font-size: 12px;
-    color: var(--text-dim);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-top: 6px;
-  }
-
-  /* CONTACT */
-  #contact { background: white; }
-  #contact .section-label { color: var(--blue); }
-  #contact .section-label::before { color: #9cb3c9; }
-  #contact .section-title { color: #0d1b2e; }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-
-  .contact-intro {
-    color: #6b7280;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 32px;
-    font-weight: 300;
-  }
-
-  .contact-items { display: flex; flex-direction: column; gap: 12px; }
-  .contact-item {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    transition: all 0.2s;
-    text-decoration: none;
-  }
-  .contact-item:hover { border-color: #c7d5e8; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-  .contact-icon { font-size: 18px; width: 24px; text-align: center; }
-  .contact-info { }
-  .contact-label { font-size: 11px; color: #9ca3af; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
-  .contact-val { font-size: 15px; color: #0d1b2e; font-weight: 500; margin-top: 2px; }
-
-  .auth-card {
-    background: var(--navy);
-    border-radius: 16px;
-    padding: 32px;
-    color: white;
-  }
-  .auth-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 14px;
-    color: white;
-  }
-  .auth-desc {
-    color: rgba(255,255,255,0.6);
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-  .auth-checks { display: flex; flex-direction: column; gap: 10px; }
-  .auth-check {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.85);
-  }
-  .auth-check::before {
-    content: '✓';
-    color: var(--cyan);
-    font-weight: 700;
-    font-size: 13px;
-    flex-shrink: 0;
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--navy);
-    border-top: 1px solid var(--border);
-    padding: 28px 80px;
-    text-align: center;
-    color: var(--text-dim);
-    font-size: 14px;
-  }
-  footer span { color: var(--text-muted); }
-
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    .nav-links { display: none; }
-    section { padding: 80px 24px; }
-    #hero { padding: 120px 24px 60px; }
-    .hero-title, .hero-title-italic { font-size: 52px; }
-    .about-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    .edu-card { flex-direction: column; }
-    .hero-stats { gap: 30px; flex-wrap: wrap; }
-    footer { padding: 24px; }
-  }
-</style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      section { padding: 3.5rem 1.25rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.75rem; }
+    }
+  </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Simran <span>Masih</span></a>
+  <span class="nav-logo">Simran Masih</span>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-content">
-    <div class="badge">Available Now · OPT Authorized</div>
-    <h1 class="hero-title">Data & Business</h1>
-    <span class="hero-title-italic">Analyst</span>
-    <p class="hero-sub">MS Business Analytics · University of New Haven · Turning messy data into dashboards and decisions that actually matter.</p>
-    <div class="skill-pills">
-      <span class="skill-pill">SQL</span>
-      <span class="skill-pill">Python</span>
-      <span class="skill-pill">Power BI</span>
-      <span class="skill-pill">Tableau</span>
-      <span class="skill-pill">DAX</span>
-      <span class="skill-pill">ETL</span>
-      <span class="skill-pill">Excel</span>
-      <span class="skill-pill">Data Modeling</span>
-    </div>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-primary">View My Work ↓</a>
-      <a href="#contact" class="btn-secondary">Get In Touch</a>
+  <div class="hero-inner">
+    <span class="hero-tag">Business Analyst · Data Analytics</span>
+    <h1 class="hero-name">Simran<br/><span>Masih</span></h1>
+    <p class="hero-sub">
+      Business Analyst bridging strategy and data — turning complex requirements into Power BI dashboards, SQL-driven insights, and Agile delivery across financial services and technology.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:simran@itresumejobs.com" class="btn btn-outline">Get in Touch</a>
     </div>
     <div class="hero-stats">
       <div>
-        <div class="stat-num">1.5<span>yr</span></div>
-        <div class="stat-label">Professional Exp.</div>
+        <span class="stat-num">3+</span>
+        <span class="stat-label">Years Experience</span>
       </div>
       <div>
-        <div class="stat-num">17<span>+</span></div>
-        <div class="stat-label">Client Accounts</div>
+        <span class="stat-num">65%</span>
+        <span class="stat-label">Faster Reporting</span>
       </div>
       <div>
-        <div class="stat-num">3<span>+</span></div>
-        <div class="stat-label">Analytics Projects</div>
+        <span class="stat-num">200+</span>
+        <span class="stat-label">UAT Test Cases</span>
       </div>
       <div>
-        <div class="stat-num">3.55</div>
-        <div class="stat-label">MS GPA</div>
+        <span class="stat-num">PL-300</span>
+        <span class="stat-label">Power BI Certified</span>
       </div>
     </div>
   </div>
@@ -694,294 +433,212 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-label">About Me</div>
-  <h2 class="section-title">I make data useful —<br>not just pretty</h2>
-
-  <div class="about-grid">
-    <div>
-      <div class="about-body">
-        <p>I'm a Data & Business Analyst with 1.5 years of professional experience and an MS in Business Analytics from the University of New Haven (Dec 2025, GPA 3.55). I work at the intersection of data engineering and business insight — building pipelines that clean and structure data, and dashboards that help teams make faster, smarter decisions.</p>
-        <p>My background spans financial analytics, transportation data, marketing segmentation, and database optimization. I've worked with clients ranging from small accounting firms to large transit authorities.</p>
+  <div class="section-inner">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a Business Analyst with around three years of experience across financial services and technology, currently at The Hartford working on Group Benefits and regulatory compliance reporting. I hold an M.S. in Business Analytics from the University of New Haven (GPA 3.55, Dec 2025) and a Microsoft PL-300 Power BI certification.
+        </p>
+        <p>
+          My strength is working both sides of the equation — I can lead a stakeholder workshop to define KPIs and write a BRD, and I can also open SQL and trace a data quality issue back to its source. I believe the best analytical work happens when those two things aren't separated.
+        </p>
+        <p>
+          Based in Connecticut. Open to remote and hybrid opportunities across the US.
+        </p>
       </div>
-      <div class="about-notice">
-        U.S. Work Authorized on OPT · No immediate sponsorship needed · Available to start immediately · Open to full-time & contract roles in CT, NY, NJ or Remote
+      <div class="about-skills">
+        <div class="skill-row">
+          <span class="skill-name">Power BI / DAX</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">SQL</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Requirements Gathering / BRD / FRD</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Agile / JIRA</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Python (Pandas)</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Tableau</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Advanced Excel</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="tech-section">
-      <div class="tech-category">Analytics & BI</div>
-      <div class="tech-pills">
-        <span class="tech-pill highlight">Power BI</span>
-        <span class="tech-pill highlight">DAX</span>
-        <span class="tech-pill">Tableau</span>
-        <span class="tech-pill">Excel</span>
-        <span class="tech-pill">PivotTables</span>
-        <span class="tech-pill">Power Query</span>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">Work History</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="exp-list">
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <span class="exp-company">Hartford Financial Services Group</span>
+          <span class="exp-date">Jul 2025 – Present · CT</span>
+        </div>
+        <div class="exp-role">Business Analyst</div>
+        <ul class="exp-bullets">
+          <li>Built end-to-end Power BI dashboards consolidating 10+ financial data sources, cutting executive reporting turnaround by 65% and enabling real-time KPI visibility across 5 business units.</li>
+          <li>Engineered DAX measures and SQL data models for compliance and workforce analytics, improving report accuracy by 40% and eliminating 12+ hours of manual reconciliation weekly.</li>
+          <li>Led requirements gathering and BRD/FRD documentation for a regulatory reporting initiative, aligning 8 cross-functional stakeholders and accelerating UAT completion by 30%.</li>
+          <li>Translated 50+ business requirements into Agile user stories in JIRA across 3 sprint teams, contributing to a 25% improvement in on-time feature delivery.</li>
+          <li>Used SQL root cause analysis to identify a data pipeline gap causing record drops, reducing reporting errors by 47% within one quarter.</li>
+        </ul>
       </div>
 
-      <div class="tech-category">Programming & ETL</div>
-      <div class="tech-pills">
-        <span class="tech-pill highlight2">SQL</span>
-        <span class="tech-pill highlight2">Python</span>
-        <span class="tech-pill">Pandas</span>
-        <span class="tech-pill">NumPy</span>
-        <span class="tech-pill">ETL Pipelines</span>
-        <span class="tech-pill">EDA</span>
+      <div class="exp-card">
+        <div class="exp-meta">
+          <span class="exp-company">Orion Technolab</span>
+          <span class="exp-date">Jan 2022 – Nov 2023 · India</span>
+        </div>
+        <div class="exp-role">Business Analyst</div>
+        <ul class="exp-bullets">
+          <li>Delivered 15+ Tableau dashboards for operational and predictive analytics, improving leadership decision-making speed by 35% and reducing ad hoc requests by 50%.</li>
+          <li>Optimized complex SQL queries for workforce analytics, cutting average execution time by 55% and enabling daily refresh cycles previously running weekly.</li>
+          <li>Mapped and re-engineered 8 core business processes through gap analysis and stakeholder workshops, reducing inefficiencies by 30% and saving ~20 hours/week across teams.</li>
+          <li>Coordinated end-to-end UAT for a BI modernization project covering 200+ test cases, achieving 98% defect resolution before go-live with zero post-launch critical issues.</li>
+          <li>Documented functional requirements in Confluence, creating a knowledge base adopted by 4 teams and reducing analyst onboarding time by 40%.</li>
+        </ul>
       </div>
 
-      <div class="tech-category">Databases & Tools</div>
-      <div class="tech-pills">
-        <span class="tech-pill">SQL Server</span>
-        <span class="tech-pill">MySQL</span>
-        <span class="tech-pill">Data Modeling</span>
-        <span class="tech-pill">Git</span>
-        <span class="tech-pill">Jupyter</span>
-      </div>
-
-      <div class="tech-category">Business Analysis</div>
-      <div class="tech-pills">
-        <span class="tech-pill">Requirements Gathering</span>
-        <span class="tech-pill">Stakeholder Mgmt</span>
-        <span class="tech-pill">Gap Analysis</span>
-        <span class="tech-pill">Process Improvement</span>
-        <span class="tech-pill">Agile</span>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-label">Featured Projects</div>
-  <h2 class="section-title">Work that made an impact</h2>
-  <p class="section-sub">A selection of analytics and BI projects spanning transportation, marketing, financial, and database domains.</p>
+  <div class="section-inner">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-intro">A mix of academic capstone and independent analytics projects demonstrating end-to-end data work.</p>
+    <div class="project-grid">
 
-  <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-tag">Capstone · Fall 2025</div>
+        <div class="project-name">Transportation Data Analytics — Port Authority NY/NJ</div>
+        <p class="project-desc">Collaborated directly with Port Authority stakeholders to define KPIs, cleaned multi-source traffic, toll, and violation data, and built a Power BI dashboard with forecasting techniques that improved model accuracy by 15%.</p>
+        <div class="project-stack">
+          <span class="stack-pill">SQL</span>
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">Power BI</span>
+          <span class="stack-pill">DAX</span>
+        </div>
+      </div>
 
-    <div class="proj-card">
-      <div class="proj-header">
-        <div class="proj-icon" style="background:#fef3c7;">🚦</div>
-        <span class="proj-date">Capstone · Fall 2025</span>
-      </div>
-      <div class="proj-title">Transportation Data Analytics — Port Authority of NY/NJ</div>
-      <div class="proj-desc">Analyzed multi-source transit data — traffic counts, toll records, and violation logs — to identify congestion patterns and operational inefficiencies across the NY/NJ transit network. Built executive KPI dashboards and delivered forecasting-backed findings to industry stakeholders.</div>
-      <div class="proj-metrics">
-        <div class="proj-metric">
-          <div class="proj-metric-val">15%</div>
-          <div class="proj-metric-label">Model Accuracy Gain</div>
-        </div>
-        <div class="proj-metric">
-          <div class="proj-metric-val">3+</div>
-          <div class="proj-metric-label">Data Sources Merged</div>
-        </div>
-        <div class="proj-metric">
-          <div class="proj-metric-val">Live</div>
-          <div class="proj-metric-label">KPI Dashboards</div>
+      <div class="project-card">
+        <div class="project-tag">Independent · Mar 2026</div>
+        <div class="project-name">Employee Attrition Analysis Dashboard</div>
+        <p class="project-desc">Analyzed 1,470 employee records using Python (Pandas) to surface key attrition drivers — Sales Reps showed 39.8% turnover, overtime workers were 3× more likely to leave. Built a 5-visual Power BI dashboard with actionable retention recommendations.</p>
+        <div class="project-stack">
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">Pandas</span>
+          <span class="stack-pill">Power BI</span>
+          <span class="stack-pill">DAX</span>
+          <span class="stack-pill">HR Analytics</span>
         </div>
       </div>
-      <div class="proj-tags">
-        <span class="proj-tag">SQL</span>
-        <span class="proj-tag">Python</span>
-        <span class="proj-tag">Power BI</span>
-        <span class="proj-tag">DAX</span>
-        <span class="proj-tag">Excel</span>
-        <span class="proj-tag">EDA</span>
-        <span class="proj-tag">Forecasting</span>
+
+      <div class="project-card">
+        <div class="project-tag">Academic · Spring 2025</div>
+        <div class="project-name">SQL Database Design & Query Optimization</div>
+        <p class="project-desc">Replaced a redundancy-heavy manual process with a normalized relational database for 10,000+ records. Optimized stored procedures achieved 40% faster query performance, validated through full UAT before go-live.</p>
+        <div class="project-stack">
+          <span class="stack-pill">SQL Server</span>
+          <span class="stack-pill">MySQL</span>
+          <span class="stack-pill">Stored Procedures</span>
+          <span class="stack-pill">UAT</span>
+        </div>
       </div>
+
+      <div class="project-card">
+        <div class="project-tag">Academic · Spring 2025</div>
+        <div class="project-name">Marketing Analytics Dashboard</div>
+        <p class="project-desc">Cleaned 50,000+ customer records using Pandas, built behavioral and value-based segments, and delivered a self-service Power BI dashboard enabling the marketing team to extract insights independently.</p>
+        <div class="project-stack">
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">Power BI</span>
+          <span class="stack-pill">DAX</span>
+          <span class="stack-pill">Customer Segmentation</span>
+        </div>
+      </div>
+
     </div>
-
-    <div class="proj-card">
-      <div class="proj-header">
-        <div class="proj-icon" style="background:#fef9c3;">⚡</div>
-        <span class="proj-date">Spring 2025</span>
-      </div>
-      <div class="proj-title">SQL Database Design & Query Performance Optimization</div>
-      <div class="proj-desc">Designed a fully normalized relational database from scratch to handle 10,000+ transaction records. Replaced manual reporting steps with complex stored procedures and optimized indexing — turning overnight batch jobs into real-time reports.</div>
-      <div class="proj-metrics">
-        <div class="proj-metric">
-          <div class="proj-metric-val">40%</div>
-          <div class="proj-metric-label">Query Speed Gain</div>
-        </div>
-        <div class="proj-metric">
-          <div class="proj-metric-val">10K+</div>
-          <div class="proj-metric-label">Records Handled</div>
-        </div>
-        <div class="proj-metric">
-          <div class="proj-metric-val">Real-time</div>
-          <div class="proj-metric-label">Report Generation</div>
-        </div>
-      </div>
-      <div class="proj-tags">
-        <span class="proj-tag">SQL Server</span>
-        <span class="proj-tag">MySQL</span>
-        <span class="proj-tag">Stored Procedures</span>
-        <span class="proj-tag">Indexing</span>
-        <span class="proj-tag">Data Modeling</span>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header">
-        <div class="proj-icon" style="background:#e0f2fe;">📊</div>
-        <span class="proj-date">Spring 2025</span>
-      </div>
-      <div class="proj-title">Marketing Analytics Dashboard & Customer Segmentation</div>
-      <div class="proj-desc">Cleaned and structured 50,000+ customer records in Python, then built an interactive Power BI self-service dashboard with DAX measures. Conducted behavioral segmentation to identify highest-value customer groups and inform campaign strategy.</div>
-      <div class="proj-metrics">
-        <div class="proj-metric">
-          <div class="proj-metric-val">50K+</div>
-          <div class="proj-metric-label">Records Cleaned</div>
-        </div>
-        <div class="proj-metric">
-          <div class="proj-metric-val">Self-serve</div>
-          <div class="proj-metric-label">Dashboard</div>
-        </div>
-        <div class="proj-metric">
-          <div class="proj-metric-val">Segments</div>
-          <div class="proj-metric-label">Identified</div>
-        </div>
-      </div>
-      <div class="proj-tags">
-        <span class="proj-tag">Python</span>
-        <span class="proj-tag">Pandas</span>
-        <span class="proj-tag">Power BI</span>
-        <span class="proj-tag">DAX</span>
-        <span class="proj-tag">Customer Segmentation</span>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header">
-        <div class="proj-icon" style="background:#fce7f3;">💼</div>
-        <span class="proj-date">May 2022 – Dec 2023</span>
-      </div>
-      <div class="proj-title">Financial Reporting Automation — B.S. Thakkar & Co.</div>
-      <div class="proj-desc">Managed data validation and reconciliation across 17+ client accounts. Rebuilt the firm's reporting pipeline from scratch and automated repetitive tasks using Python and Excel macros — delivering measurable gains in accuracy and speed.</div>
-      <div class="proj-metrics">
-        <div class="proj-metric">
-          <div class="proj-metric-val">18%</div>
-          <div class="proj-metric-label">Accuracy Improved</div>
-        </div>
-        <div class="proj-metric">
-          <div class="proj-metric-val">25%</div>
-          <div class="proj-metric-label">Time Saved</div>
-        </div>
-        <div class="proj-metric">
-          <div class="proj-metric-val">17+</div>
-          <div class="proj-metric-label">Client Accounts</div>
-        </div>
-      </div>
-      <div class="proj-tags">
-        <span class="proj-tag">SQL</span>
-        <span class="proj-tag">Excel</span>
-        <span class="proj-tag">Python</span>
-        <span class="proj-tag">Macros</span>
-        <span class="proj-tag">Financial Reporting</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label">Experience</div>
-  <h2 class="section-title">Where I've worked</h2>
-  <p class="section-sub">Professional experience in financial analytics, combined with graduate-level applied projects.</p>
-
-  <div class="exp-card">
-    <div class="exp-header">
-      <div>
-        <div class="exp-title">Financial Data Analyst</div>
-        <div class="exp-company">B.S. Thakkar & Co. · India</div>
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-inner">
+    <p class="section-label">Credentials</p>
+    <h2 class="section-title">Education & Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div>
+          <div class="cert-name">M.S. Business Analytics</div>
+          <div class="cert-issuer">University of New Haven · GPA 3.55 · Dec 2025</div>
+        </div>
       </div>
-      <div class="exp-date">May 2022 – Dec 2023</div>
-    </div>
-    <ul class="exp-bullets">
-      <li><span>Handled <strong>data validation and reconciliation</strong> for 17+ client accounts using SQL and Excel, ensuring accuracy of all financial records for audit and compliance reporting.</span></li>
-      <li><span>Identified gaps in the firm's reporting process; <strong>redesigned the workflow from scratch</strong>, improving accuracy by 18% — adopted as the firm-wide standard.</span></li>
-      <li><span>Built <strong>Python scripts and Excel macros</strong> to automate repetitive report preparation, cutting processing time by 25%.</span></li>
-      <li><span>Collaborated with senior auditors to review financial data, surface anomalies, and deliver clear client reports across all active accounts.</span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label" style="color:var(--blue-light);">Education</div>
-  <h2 class="section-title">Academic Background</h2>
-  <p class="section-sub" style="color:var(--text-muted);">Graduate-level training in analytics, modeling, and business intelligence.</p>
-
-  <div class="edu-card">
-    <div>
-      <div class="edu-degree">M.S. Business Analytics</div>
-      <div class="edu-school">University of New Haven · West Haven, CT</div>
-      <div class="edu-dates">January 2024 – December 2025</div>
-      <div class="edu-courses">Coursework: Data Analytics & Visualization · Database Management Systems<br>Predictive Modeling · Business Intelligence · Statistical Analysis</div>
-    </div>
-    <div class="edu-gpa-box">
-      <div class="edu-gpa-num">3.55</div>
-      <div class="edu-gpa-label">GPA / 4.0</div>
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div>
+          <div class="cert-name">B.Com (Commerce)</div>
+          <div class="cert-issuer">M.S. University of Baroda · May 2023</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div>
+          <div class="cert-name">Microsoft PL-300</div>
+          <div class="cert-issuer">Power BI Data Analyst Associate</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📈</div>
+        <div>
+          <div class="cert-name">Google Data Analytics</div>
+          <div class="cert-issuer">Professional Certificate · Google</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label">Get In Touch</div>
-  <h2 class="section-title">Let's talk data</h2>
-
-  <div class="contact-grid">
-    <div>
-      <p class="contact-intro">I'm actively seeking full-time or contract Data Analyst, Business Analyst, or BI/Reporting Analyst roles in CT, NY, NJ or Remote. I'm available immediately and authorized to work in the U.S. on OPT with no immediate sponsorship needed.</p>
-      <div class="contact-items">
-        <a href="mailto:simranmasih079@gmail.com" class="contact-item">
-          <span class="contact-icon">✉️</span>
-          <div class="contact-info">
-            <div class="contact-label">Email</div>
-            <div class="contact-val">simranmasih079@gmail.com</div>
-          </div>
-        </a>
-        <a href="tel:2036680464" class="contact-item">
-          <span class="contact-icon">📞</span>
-          <div class="contact-info">
-            <div class="contact-label">Phone</div>
-            <div class="contact-val">203-668-0464</div>
-          </div>
-        </a>
-        <a href="https://linkedin.com/in/simran-masih-7920smab" target="_blank" class="contact-item">
-          <span class="contact-icon">💼</span>
-          <div class="contact-info">
-            <div class="contact-label">LinkedIn</div>
-            <div class="contact-val">linkedin.com/in/simran-masih-7920smab</div>
-          </div>
-        </a>
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
-          <div class="contact-info">
-            <div class="contact-label">Location</div>
-            <div class="contact-val">West Haven, CT · Open to Remote / CT / NY / NJ</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="auth-card">
-      <div class="auth-title">Work Authorization</div>
-      <p class="auth-desc">Currently on OPT (Optional Practical Training) — fully authorized to work in the United States without immediate employer sponsorship.</p>
-      <div class="auth-checks">
-        <div class="auth-check">U.S. Work Authorized on OPT</div>
-        <div class="auth-check">No immediate sponsorship required</div>
-        <div class="auth-check">Available to start immediately</div>
-        <div class="auth-check">Open to full-time & contract roles</div>
-        <div class="auth-check">Open to CT · NY · NJ · Remote</div>
-      </div>
+  <div class="section-inner">
+    <p class="section-label">Let's Connect</p>
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-intro">Open to Business Analyst and Data Analyst roles — remote or hybrid across the US. Currently on F-1 OPT, currently available.</p>
+    <div class="contact-links">
+      <a href="mailto:simran@itresumejobs.com" class="contact-link">📧 simran@itresumejobs.com</a>
+      <a href="tel:2032759085" class="contact-link">📞 203-275-9085</a>
+      <a href="https://www.linkedin.com/in/simran-masih07" class="contact-link" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Simranmasih07" class="contact-link" target="_blank">GitHub</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <span>© 2026 Simran Masih · Data & Business Analyst · Built with purpose 🤍</span>
+  © 2026 Simran Masih · Built for GitHub Pages
 </footer>
 
 </body>
